@@ -5,58 +5,155 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#07101a">
   <meta name="description" content="Una breve experiencia sobre el evangelio de Jesús.">
-  <title>El pecado — El Camino</title>
+  <title>El Camino</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <section class="experience" id="experience" aria-label="El camino: todos hemos fallado">
-    <div class="photo photo-near" aria-hidden="true"></div>
-    <div class="photo photo-far" aria-hidden="true"></div>
-    <div class="shade" aria-hidden="true"></div>
-    <div class="mist" aria-hidden="true"></div>
-
-    <header>
-      <div class="brand">El Camino</div>
-      <div class="progress-label">01 / 05</div>
-    </header>
-    <div class="progress" aria-label="Pantalla 1 de 5">
-      <span></span><span></span><span></span><span></span><span></span>
-    </div>
-
+  <section class="screen screen-one active" data-screen="1" aria-label="Todos hemos fallado">
+    <div class="background photo-near" aria-hidden="true"></div>
+    <div class="background photo-far" aria-hidden="true"></div>
+    <div class="overlay cold-overlay" aria-hidden="true"></div>
+    <div class="top"><span class="brand">El Camino</span><span class="counter">01 / 05</span></div>
+    <div class="progress"><i class="filled"></i><i></i><i></i><i></i><i></i></div>
     <main>
-      <div class="eyebrow">Romanos 3:23</div>
+      <span class="eyebrow">Romanos 3:23</span>
       <h1>Todos hemos <em>fallado.</em></h1>
-      <blockquote class="verse">
-        “Todos pecaron y están destituidos de la gloria de Dios.”
-        <cite>Romanos 3:23</cite>
-      </blockquote>
-      <div class="lower-content">
-        <p class="message">Todos hemos hecho cosas que hieren a otros, a nosotros mismos y nos alejan de Dios.</p>
-        <div class="distance-control">
-          <label for="distance">Aleja la luz</label>
-          <input id="distance" type="range" min="0" max="100" value="0" aria-describedby="distance-message">
-        </div>
-        <p class="distance" id="distance-message" aria-live="polite"></p>
-
-        <button class="continue" id="continue" type="button">Conocer la consecuencia&nbsp; →</button>
-        <p class="coming" id="coming" aria-live="polite"></p>
+      <blockquote>“Todos pecaron y están destituidos de la gloria de Dios.”<cite>Romanos 3:23</cite></blockquote>
+      <div class="bottom-block">
+        <p>Todos hemos hecho cosas que hieren a otros, a nosotros mismos y nos alejan de Dios.</p>
+        <label class="range-control">Aleja la luz <input id="distance" type="range" min="0" max="100" value="0"></label>
+        <small id="distance-message" aria-live="polite"></small>
+        <button class="primary" data-next="2">Conocer la consecuencia <b>→</b></button>
       </div>
     </main>
   </section>
-  <script>
-    const experience = document.querySelector('#experience');
-    const distance = document.querySelector('#distance');
-    const distanceMessage = document.querySelector('#distance-message');
-    const coming = document.querySelector('#coming');
 
-    distance.addEventListener('input', () => {
-      const isFar = Number(distance.value) > 55;
-      experience.classList.toggle('farther', isFar);
-      distanceMessage.textContent = isFar ? 'La luz parece cada vez más distante.' : '';
+  <section class="screen screen-two" data-screen="2" aria-label="La consecuencia">
+    <div class="background chasm chasm-start" aria-hidden="true"></div>
+    <div class="background chasm chasm-jump" aria-hidden="true"></div>
+    <div class="background chasm chasm-fall" aria-hidden="true"></div>
+    <div class="overlay chasm-overlay" aria-hidden="true"></div>
+    <div class="top"><span class="brand">El Camino</span><span class="counter">02 / 05</span></div>
+    <div class="progress"><i class="filled"></i><i class="filled"></i><i></i><i></i><i></i></div>
+    <main>
+      <span class="eyebrow">Romanos 6:23</span>
+      <h1>El problema tiene <em>consecuencias.</em></h1>
+      <blockquote>“La paga del pecado es muerte…”<cite>Romanos 6:23</cite></blockquote>
+      <p>El pecado rompe nuestra relación con Dios.</p>
+      <div class="bottom-block">
+        <small id="attempt-message" aria-live="polite">Hay una distancia que no podemos cruzar solos.</small>
+        <button class="primary" id="attempt-crossing">Intentar cruzar <b>→</b></button>
+        <button class="primary next-after-attempt" data-next="3" hidden>Ver la esperanza <b>→</b></button>
+      </div>
+    </main>
+  </section>
+
+  <section class="screen screen-three warm" data-screen="3" aria-label="El amor de Dios">
+    <div class="background bridge" aria-hidden="true"></div><div class="overlay warm-overlay" aria-hidden="true"></div>
+    <div class="top"><span class="brand">El Camino</span><span class="counter">03 / 05</span></div>
+    <div class="progress"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i></i><i></i></div>
+    <main>
+      <span class="eyebrow">Juan 3:16</span>
+      <h1>Pero Dios no nos dejó <em>así.</em></h1>
+      <blockquote>“Porque de tal manera amó Dios al mundo…”<cite>Juan 3:16</cite></blockquote>
+      <div class="bottom-block">
+        <p>Dios no esperó que fueras perfecto. Él dio a Jesús para acercarte nuevamente a Él.</p>
+        <button class="primary" data-next="4">Conocer la respuesta <b>→</b></button>
+      </div>
+    </main>
+  </section>
+
+  <section class="screen screen-four warm" data-screen="4" aria-label="La respuesta">
+    <div class="background response" aria-hidden="true"></div><div class="overlay warm-overlay" aria-hidden="true"></div>
+    <div class="top"><span class="brand">El Camino</span><span class="counter">04 / 05</span></div>
+    <div class="progress"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i></i></div>
+    <main>
+      <span class="eyebrow">Romanos 10:9</span>
+      <h1>La respuesta es <em>personal.</em></h1>
+      <blockquote>“Si confiesas con tu boca que Jesús es el Señor… serás salvo.”<cite>Romanos 10:9</cite></blockquote>
+      <div class="bottom-block">
+        <p>Dios invita a responder con fe, reconociendo a Jesús como Señor.</p>
+        <div class="choice-row" aria-label="Formas de responder">
+          <span>Creer en Jesús</span><span>Confesarlo</span>
+        </div>
+        <button class="primary" data-next="5">Continuar <b>→</b></button>
+      </div>
+    </main>
+  </section>
+
+  <section class="screen screen-five warm" data-screen="5" aria-label="Una nueva vida">
+    <div class="background new-life" aria-hidden="true"></div><div class="overlay warm-overlay" aria-hidden="true"></div>
+    <div class="top"><span class="brand">El Camino</span><span class="counter">05 / 05</span></div>
+    <div class="progress"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i></div>
+    <main>
+      <span class="eyebrow">2 Corintios 5:17</span>
+      <h1>Una <em>vida nueva.</em></h1>
+      <blockquote>“Si alguno está en Cristo, nueva criatura es.”<cite>2 Corintios 5:17</cite></blockquote>
+      <div class="bottom-block">
+        <p>Seguir a Jesús no significa solo cambiar de religión. Significa comenzar una vida nueva con Él.</p>
+        <button class="primary" data-next="6">La invitación <b>→</b></button>
+      </div>
+    </main>
+  </section>
+
+  <section class="screen screen-final warm" data-screen="6" aria-label="La invitación">
+    <div class="background invitation" aria-hidden="true"></div><div class="overlay warm-overlay" aria-hidden="true"></div>
+    <div class="top"><span class="brand">El Camino</span><span class="counter">Final</span></div>
+    <div class="progress"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i></div>
+    <main>
+      <span class="eyebrow">El siguiente paso</span>
+      <h1>Jesús sigue llamando <em>hoy.</em></h1>
+      <div class="bottom-block">
+        <p>Si deseas conocer más, hablar con alguien o hacer una oración, no tienes que hacerlo solo.</p>
+        <div class="actions">
+          <a class="primary" href="mailto:TU-CORREO@EJEMPLO.COM?subject=Quiero%20hablar%20sobre%20Jes%C3%BAs">Quiero hablar con alguien</a>
+          <a class="secondary" href="https://www.biblegateway.com/passage/?search=Juan%201&version=RVR1960" target="_blank" rel="noopener">Leer el Evangelio de Juan</a>
+        </div>
+        <button class="restart" data-next="1">Volver a empezar</button>
+      </div>
+    </main>
+  </section>
+
+  <script>
+    const screens = [...document.querySelectorAll('.screen')];
+    const distance = document.querySelector('#distance');
+    const screenOne = document.querySelector('.screen-one');
+    const screenTwo = document.querySelector('.screen-two');
+    const attempt = document.querySelector('#attempt-crossing');
+    const attemptMessage = document.querySelector('#attempt-message');
+    const afterAttempt = document.querySelector('.next-after-attempt');
+    let isAttempting = false;
+
+    function goTo(number) {
+      const next = screens.find((screen) => Number(screen.dataset.screen) === number);
+      if (!next) return;
+      next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    document.querySelectorAll('[data-next]').forEach((button) => {
+      button.addEventListener('click', () => goTo(Number(button.dataset.next)));
     });
 
-    document.querySelector('#continue').addEventListener('click', () => {
-      coming.textContent = 'La pantalla 2: “La consecuencia” llegará a continuación.';
+    distance.addEventListener('input', () => {
+      const farther = Number(distance.value) > 55;
+      screenOne.classList.toggle('farther', farther);
+      document.querySelector('#distance-message').textContent = farther ? 'La luz parece cada vez más distante.' : '';
+    });
+
+    attempt.addEventListener('click', () => {
+      if (isAttempting) return;
+      isAttempting = true;
+      screenTwo.classList.remove('is-falling');
+      screenTwo.classList.add('is-jumping');
+      attempt.disabled = true;
+      attemptMessage.textContent = 'Intentamos alcanzar el otro lado…';
+      setTimeout(() => {
+        screenTwo.classList.remove('is-jumping');
+        screenTwo.classList.add('is-falling');
+        attemptMessage.textContent = 'Por nuestras propias fuerzas, no podemos llegar.';
+        attempt.hidden = true;
+        afterAttempt.hidden = false;
+      }, 1250);
     });
   </script>
 </body>
