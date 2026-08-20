@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07101a">
+  <meta name="description" content="Una breve experiencia sobre el evangelio de Jesús.">
+  <title>El pecado — El Camino</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section class="experience" id="experience" aria-label="El camino: todos hemos fallado">
+    <div class="photo photo-near" aria-hidden="true"></div>
+    <div class="photo photo-far" aria-hidden="true"></div>
+    <div class="shade" aria-hidden="true"></div>
+    <div class="mist" aria-hidden="true"></div>
+
+    <header>
+      <div class="brand">El Camino</div>
+      <div class="progress-label">01 / 05</div>
+    </header>
+    <div class="progress" aria-label="Pantalla 1 de 5">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <main>
+      <div class="eyebrow">Romanos 3:23</div>
+      <h1>Todos hemos <em>fallado.</em></h1>
+      <blockquote class="verse">
+        “Todos pecaron y están destituidos de la gloria de Dios.”
+        <cite>Romanos 3:23</cite>
+      </blockquote>
+      <div class="lower-content">
+        <p class="message">Todos hemos hecho cosas que hieren a otros, a nosotros mismos y nos alejan de Dios.</p>
+        <div class="distance-control">
+          <label for="distance">Aleja la luz</label>
+          <input id="distance" type="range" min="0" max="100" value="0" aria-describedby="distance-message">
+        </div>
+        <p class="distance" id="distance-message" aria-live="polite"></p>
+
+        <button class="continue" id="continue" type="button">Conocer la consecuencia&nbsp; →</button>
+        <p class="coming" id="coming" aria-live="polite"></p>
+      </div>
+    </main>
+  </section>
+  <script>
+    const experience = document.querySelector('#experience');
+    const distance = document.querySelector('#distance');
+    const distanceMessage = document.querySelector('#distance-message');
+    const coming = document.querySelector('#coming');
+
+    distance.addEventListener('input', () => {
+      const isFar = Number(distance.value) > 55;
+      experience.classList.toggle('farther', isFar);
+      distanceMessage.textContent = isFar ? 'La luz parece cada vez más distante.' : '';
+    });
+
+    document.querySelector('#continue').addEventListener('click', () => {
+      coming.textContent = 'La pantalla 2: “La consecuencia” llegará a continuación.';
+    });
+  </script>
+</body>
+</html>

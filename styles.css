@@ -1,0 +1,157 @@
+:root {
+  --paper: #f5f1e8;
+  --muted: #bdc8d4;
+  --gold: #ffd47a;
+  --night: #07101a;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--night); }
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--night);
+  color: var(--paper);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button { font: inherit; }
+.experience {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  min-height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.photo, .shade, .mist {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.photo {
+  z-index: -4;
+  background-color: #07101a;
+  background-position: 58% center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.photo-near {
+  background-image: url("img/pantalla1.1.jpg");
+  opacity: 1;
+  transform: scale(1.04);
+  animation: drift 14s ease-in-out infinite alternate;
+}
+
+.photo-far {
+  background-image: url("img/pantalla1.2.jpg");
+  background-position: 47% 68%;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 1.4s ease, transform 1.8s ease;
+}
+
+.shade {
+  z-index: -3;
+  background:
+    linear-gradient(180deg, rgba(2, 7, 13, .76) 0%, rgba(3, 10, 17, .24) 34%, rgba(3, 10, 17, .46) 59%, rgba(3, 10, 17, .95) 100%),
+    linear-gradient(90deg, rgba(2, 7, 13, .56), transparent 60%);
+}
+
+.mist {
+  z-index: -2;
+  opacity: .26;
+  background: radial-gradient(ellipse at 69% 42%, transparent 0 8%, rgba(254, 204, 103, .3) 24%, transparent 51%);
+  filter: blur(18px);
+  animation: light-fades 7s ease-in-out infinite;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px clamp(22px, 6vw, 70px) 0;
+}
+
+.brand { font-weight: 800; font-size: .72rem; letter-spacing: .19em; text-transform: uppercase; }
+.progress-label { color: #d3dce4; font-size: .78rem; font-variant-numeric: tabular-nums; }
+.progress { display: flex; gap: 5px; padding: 18px clamp(22px, 6vw, 70px); }
+.progress span { height: 2px; flex: 1; max-width: 86px; border-radius: 20px; background: rgba(255, 255, 255, .27); }
+.progress span:first-child { background: var(--gold); box-shadow: 0 0 12px rgba(255, 212, 122, .9); }
+
+main {
+  width: min(100%, 760px);
+  margin: auto 0 0;
+  padding: clamp(42px, 9vh, 94px) clamp(22px, 7vw, 108px) max(32px, env(safe-area-inset-bottom));
+}
+
+.eyebrow { display: flex; align-items: center; gap: 9px; color: var(--gold); font-size: .77rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; box-shadow: 0 0 17px currentColor; }
+h1 { max-width: 660px; margin: 15px 0 19px; font-size: clamp(3rem, 10vw, 6.8rem); letter-spacing: -.07em; line-height: .91; }
+h1 em { color: var(--gold); font-style: normal; }
+.verse { max-width: 540px; margin: 0 0 21px; padding: 4px 0 4px 16px; border-left: 2px solid var(--gold); color: #fffdf6; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.06rem, 2.4vw, 1.3rem); line-height: 1.42; }
+.verse cite { display: block; margin-top: 7px; color: var(--gold); font-family: inherit; font-size: .75rem; font-style: normal; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.message { max-width: 530px; margin: 0; color: var(--muted); font-size: clamp(1rem, 2.3vw, 1.12rem); line-height: 1.62; }
+.lower-content { margin-top: 0; }
+.distance-control { display: flex; align-items: center; gap: 12px; width: fit-content; max-width: 100%; margin-top: 25px; padding: 8px 10px 8px 16px; border: 1px solid rgba(255, 255, 255, .2); border-radius: 99px; background: rgba(6, 15, 25, .51); backdrop-filter: blur(9px); }
+.distance-control label { color: #e8edf3; font-size: .82rem; font-weight: 650; white-space: nowrap; }
+input[type="range"] { width: min(115px, 24vw); accent-color: var(--gold); cursor: ew-resize; }
+.distance { min-height: 19px; margin: 11px 0 0; color: var(--gold); font-size: .82rem; }
+.continue { display: inline-flex; align-items: center; justify-content: center; min-height: 51px; margin-top: 22px; padding: 0 22px; border: 0; border-radius: 99px; background: var(--gold); color: #18212a; font-weight: 850; cursor: pointer; box-shadow: 0 10px 30px rgba(255, 211, 118, .2); transition: transform .2s ease, box-shadow .2s ease; }
+.continue:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(255, 211, 118, .34); }
+.continue:focus-visible, input:focus-visible { outline: 3px solid white; outline-offset: 3px; }
+.coming { min-height: 20px; margin: 12px 0 0; color: #a9b8c8; font-size: .8rem; }
+
+.farther .photo-near { animation: none; opacity: 0; transform: scale(1.09) translateX(-2.5%); transition: opacity 1.1s ease, transform 1.8s ease; }
+.farther .photo-far { opacity: 1; transform: scale(1.06); }
+.farther .mist { animation: none; opacity: .06; transform: scale(.58) translate(42%, -14%); transition: opacity 1.2s ease, transform 1.8s ease; }
+
+@keyframes drift { to { transform: scale(1.1) translateX(-1.4%); } }
+@keyframes light-fades { 50% { opacity: .1; transform: scale(.77); } }
+@media (min-width: 760px) { .photo { background-position: center; } main { padding-bottom: 58px; } }
+@media (max-width: 600px) {
+  main {
+    margin: 4px 0 0;
+    padding: 12px 22px 24px;
+  }
+
+  h1 {
+    margin: 12px 0 14px;
+    font-size: clamp(2.65rem, 12vw, 3.7rem);
+    line-height: .94;
+  }
+
+  .verse {
+    margin-bottom: 14px;
+    font-size: .98rem;
+    line-height: 1.35;
+  }
+
+  .verse cite { margin-top: 5px; }
+  .message { font-size: .95rem; line-height: 1.48; }
+  .lower-content {
+    position: absolute;
+    right: 22px;
+    bottom: max(24px, env(safe-area-inset-bottom));
+    left: 22px;
+    margin-top: 0;
+  }
+  .distance-control { margin-top: 17px; }
+  .distance { margin-top: 7px; }
+  .continue { min-height: 47px; margin-top: 12px; }
+  .coming { margin-top: 8px; }
+}
+
+@media (max-width: 440px) {
+  .photo-near { background-position: 60% center; }
+  .photo-far {
+    background-position: 47% 68%;
+    background-size: auto 122%;
+  }
+  .distance-control { gap: 8px; padding-left: 13px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
