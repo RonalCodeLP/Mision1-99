@@ -155,6 +155,18 @@
       button.addEventListener('click', () => goTo(Number(button.dataset.next)));
     });
 
+    document.addEventListener('touchmove', (event) => {
+      if (!event.target.closest('input[type="range"]')) event.preventDefault();
+    }, { passive: false });
+
+    document.addEventListener('wheel', (event) => event.preventDefault(), { passive: false });
+
+    document.addEventListener('keydown', (event) => {
+      if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '].includes(event.key)) {
+        event.preventDefault();
+      }
+    });
+
     distance.addEventListener('input', () => {
       const farther = Number(distance.value) > 55;
       screenOne.classList.toggle('farther', farther);
