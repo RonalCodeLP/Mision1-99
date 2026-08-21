@@ -33,6 +33,7 @@
     <div class="background chasm chasm-jump" aria-hidden="true"></div>
     <div class="background chasm chasm-fall" aria-hidden="true"></div>
     <div class="overlay chasm-overlay" aria-hidden="true"></div>
+    <button class="back" data-back aria-label="Volver a la pantalla anterior">←</button>
     <div class="top"><span class="brand">El Camino</span><span class="counter">02 / 05</span></div>
     <div class="progress"><i class="filled"></i><i class="filled"></i><i></i><i></i><i></i></div>
     <main>
@@ -50,6 +51,7 @@
 
   <section class="screen screen-three warm" data-screen="3" aria-label="El amor de Dios">
     <div class="background bridge" aria-hidden="true"></div><div class="overlay warm-overlay" aria-hidden="true"></div>
+    <button class="back" data-back aria-label="Volver a la pantalla anterior">←</button>
     <div class="top"><span class="brand">El Camino</span><span class="counter">03 / 05</span></div>
     <div class="progress"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i></i><i></i></div>
     <main>
@@ -65,6 +67,7 @@
 
   <section class="screen screen-four warm" data-screen="4" aria-label="La respuesta">
     <div class="background response" aria-hidden="true"></div><div class="overlay warm-overlay" aria-hidden="true"></div>
+    <button class="back" data-back aria-label="Volver a la pantalla anterior">←</button>
     <div class="top"><span class="brand">El Camino</span><span class="counter">04 / 05</span></div>
     <div class="progress"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i></i></div>
     <main>
@@ -83,6 +86,7 @@
 
   <section class="screen screen-five warm" data-screen="5" aria-label="Una nueva vida">
     <div class="background new-life" aria-hidden="true"></div><div class="overlay warm-overlay" aria-hidden="true"></div>
+    <button class="back" data-back aria-label="Volver a la pantalla anterior">←</button>
     <div class="top"><span class="brand">El Camino</span><span class="counter">05 / 05</span></div>
     <div class="progress"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i></div>
     <main>
@@ -98,6 +102,7 @@
 
   <section class="screen screen-final warm" data-screen="6" aria-label="La invitación">
     <div class="background invitation" aria-hidden="true"></div><div class="overlay warm-overlay" aria-hidden="true"></div>
+    <button class="back" data-back aria-label="Volver a la pantalla anterior">←</button>
     <div class="top"><span class="brand">El Camino</span><span class="counter">Final</span></div>
     <div class="progress"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i></div>
     <main>
@@ -116,6 +121,7 @@
 
   <section class="screen screen-prayer" data-screen="7" aria-label="Oración de salvación">
     <div class="background prayer-background" aria-hidden="true"></div><div class="overlay prayer-overlay" aria-hidden="true"></div>
+    <button class="back" data-back aria-label="Volver a la pantalla anterior">←</button>
     <div class="top"><span class="brand">El Camino</span><span class="counter">Oración</span></div>
     <div class="progress"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i></div>
     <main class="prayer-content">
@@ -153,6 +159,13 @@
 
     document.querySelectorAll('[data-next]').forEach((button) => {
       button.addEventListener('click', () => goTo(Number(button.dataset.next)));
+    });
+
+    document.querySelectorAll('[data-back]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const current = Number(button.closest('.screen').dataset.screen);
+        goTo(current - 1);
+      });
     });
 
     document.addEventListener('touchmove', (event) => {

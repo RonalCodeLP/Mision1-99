@@ -13,6 +13,8 @@ button, a { font:inherit; }
 .farther .photo-near { opacity:0; animation:none; }.farther .photo-far { opacity:1; }
 .top { display:flex; justify-content:space-between; align-items:center; padding:20px clamp(22px,6vw,70px) 0; }
 .brand { font-weight:800; font-size:.72rem; letter-spacing:.19em; text-transform:uppercase; }.counter { font-size:.78rem; color:#d8dee5; }
+.back { position:absolute; z-index:2; top:14px; left:clamp(22px,6vw,70px); width:34px; height:34px; border:1px solid rgba(255,255,255,.34); border-radius:50%; background:rgba(6,15,25,.38); color:var(--paper); font-size:1.2rem; line-height:1; cursor:pointer; backdrop-filter:blur(6px); }.back:hover { background:rgba(255,255,255,.18); }.back:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+.screen:has(.back) .brand { margin-left:45px; }
 .progress { display:flex; gap:5px; padding:18px clamp(22px,6vw,70px); }.progress i { height:2px; flex:1; max-width:86px; border-radius:9px; background:rgba(255,255,255,.27); }.progress .filled { background:var(--gold); box-shadow:0 0 12px rgba(255,210,120,.85); }
 main { width:min(100%,760px); margin:auto 0 0; padding:clamp(42px,9vh,94px) clamp(22px,7vw,108px) max(32px,env(safe-area-inset-bottom)); }
 .eyebrow { display:flex; align-items:center; gap:9px; color:var(--gold); font-size:.77rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }.eyebrow::before { content:""; width:7px; height:7px; border-radius:50%; background:currentColor; box-shadow:0 0 17px currentColor; }
@@ -55,4 +57,17 @@ p { max-width:530px; margin:0; color:var(--muted); font-size:clamp(1rem,2.3vw,1.
     background-size:100% auto;
     background-position:center center;
   }
+}
+
+@media (max-width:600px) {
+  .screen-prayer .top { padding-top:14px; }
+  .screen-prayer .progress { padding-top:12px; padding-bottom:8px; }
+  .screen-prayer .prayer-content { margin-top:0; padding-top:4px; padding-bottom:14px; }
+  .screen-prayer h1 { margin:8px 0 8px; font-size:clamp(2rem,9.3vw,2.7rem); }
+  .screen-prayer .prayer-intro { font-size:.8rem; line-height:1.28; }
+  .screen-prayer .prayer-card { margin-top:10px; padding:11px 13px; border-radius:12px; }
+  .screen-prayer .prayer-card label { font-size:.9rem; }
+  .screen-prayer .prayer-card p { margin-top:7px; font-size:.79rem; line-height:1.27; }
+  .screen-prayer .prayer-address { margin-top:10px; font-size:.7rem; }
+  .screen-prayer .restart { min-height:38px; margin-top:9px; font-size:.82rem; }
 }
