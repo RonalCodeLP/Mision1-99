@@ -62,10 +62,10 @@ p { max-width:530px; margin:0; color:var(--muted); font-size:clamp(1rem,2.3vw,1.
 @media (max-width:600px) {
   .screen-prayer .top { padding-top:14px; }
   .screen-prayer .progress { padding-top:12px; padding-bottom:8px; }
-  .screen-prayer .prayer-content { margin-top:0; padding-top:4px; padding-bottom:14px; }
+  .screen-prayer .prayer-content { flex-grow: 1; display: flex; flex-direction: column; margin-top: 0; padding-top: 12px; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
   .screen-prayer h1 { margin:8px 0 8px; font-size:clamp(2rem,9.3vw,2.7rem); }
   .screen-prayer .prayer-intro { font-size:.8rem; line-height:1.28; }
-  .screen-prayer .prayer-card { margin-top:10px; padding:11px 13px; border-radius:12px; }
+  .screen-prayer .prayer-card { margin-top: auto; margin-bottom: auto; padding: 11px 13px; border-radius: 12px; transform: translateY(-25px); }
   .screen-prayer .prayer-card label { font-size:.9rem; }
   .screen-prayer .prayer-card p { margin-top:7px; font-size:.79rem; line-height:1.27; }
   .screen-prayer .prayer-address { margin-top:10px; font-size:.7rem; }
