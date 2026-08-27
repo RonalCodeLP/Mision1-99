@@ -12,7 +12,9 @@ button, a { font:inherit; }
 .cold-overlay { background:linear-gradient(180deg,rgba(2,7,13,.77),rgba(3,10,17,.14) 34%,rgba(3,10,17,.43) 56%,rgba(3,10,17,.96)); }
 .farther .photo-near { opacity:0; animation:none; }.farther .photo-far { opacity:1; }
 .top { display:flex; justify-content:space-between; align-items:center; padding:20px clamp(22px,6vw,70px) 0; }
-.brand { font-weight:800; font-size:.72rem; letter-spacing:.19em; text-transform:uppercase; }.counter { font-size:.78rem; color:#d8dee5; }
+.brand { display:inline-flex; align-items:center; gap:8px; font-weight:800; font-size:.72rem; letter-spacing:.19em; text-transform:uppercase; }
+.brand::before { content:""; display:inline-block; width:36px; height:36px; background-image:url("img/logo-solo.png"); background-size:contain; background-repeat:no-repeat; background-position:center; }
+.counter { font-size:.78rem; color:#d8dee5; }
 .back { position:absolute; z-index:2; top:14px; left:clamp(22px,6vw,70px); width:34px; height:34px; border:1px solid rgba(255,255,255,.34); border-radius:50%; background:rgba(6,15,25,.38); color:var(--paper); font-size:1.2rem; line-height:1; cursor:pointer; backdrop-filter:blur(6px); }.back:hover { background:rgba(255,255,255,.18); }.back:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
 .screen:has(.back) .brand { margin-left:45px; }
 .progress { display:flex; gap:5px; padding:18px clamp(22px,6vw,70px); }.progress i { height:2px; flex:1; max-width:86px; border-radius:9px; background:rgba(255,255,255,.27); }.progress .filled { background:var(--gold); box-shadow:0 0 12px rgba(255,210,120,.85); }
@@ -68,6 +70,16 @@ p { max-width:530px; margin:0; color:var(--muted); font-size:clamp(1rem,2.3vw,1.
   .screen-prayer .prayer-card { margin-top: auto; margin-bottom: auto; padding: 11px 13px; border-radius: 12px; transform: translateY(-25px); }
   .screen-prayer .prayer-card label { font-size:.9rem; }
   .screen-prayer .prayer-card p { margin-top:7px; font-size:.79rem; line-height:1.27; }
-  .screen-prayer .prayer-address { margin-top:10px; font-size:.7rem; }
-  .screen-prayer .restart { min-height:38px; margin-top:9px; font-size:.82rem; }
+  .screen-prayer .prayer-address { margin-top:10px; font-size:.7rem; text-align: center; display: block; width: 100%; }
+  .screen-prayer .restart { min-height:38px; margin-top:8px; font-size:.82rem; }
 }
+.social-links { display: flex; justify-content: center; gap: 16px; margin-top: 18px; }
+.social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255, 255, 255, 0.08); color: var(--paper); transition: background 0.25s, transform 0.25s; }
+.social-links a:hover { background: rgba(255, 255, 255, 0.2); transform: scale(1.05); }
+.social-links .icon { width: 18px; height: 18px; fill: currentColor; }
+.prayer-social-row { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 14px; }
+.prayer-social-row .social-links { margin-top: 0; }
+.social-logo { height: 34px; width: 34px; object-fit: contain; opacity: 0.85; }
+.prayer-footer { text-align: center; }
+.prayer-footer .restart { margin-top: 10px; }
+
